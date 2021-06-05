@@ -2,7 +2,7 @@
   <thead class="thead-dark">
   <tr>
     <th scope="col">City</th>
-    <th scope="col" *ngFor="let weather of weatherList[0].list"> {{ weather.dt * 1000  | date:'shortTime' }} </th>
+    <th scope="col" *ngFor="let weather of (weatherList[0] || []).list"> {{ weather.dt * 1000  | date:'shortTime' }} </th>
   </tr>
   </thead>
 
@@ -15,6 +15,5 @@
       <td scope="row" class="city">{{weather.city.name}}</td>
       <td scope="row" *ngFor="let temperature of weather.list">{{ temperature.main.temp }} &deg;</td>
     </tr>
-
   </tbody>
 </table>
